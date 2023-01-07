@@ -39,7 +39,7 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 MY_APPS = [
-
+    'products',
 ]
 THIRD_APPS = [
 
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'GMT-3'
+TIME_ZONE = 'Etc/GMT-3'
 
 USE_I18N = True
 
