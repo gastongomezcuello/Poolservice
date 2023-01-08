@@ -5,7 +5,7 @@ from django.db import models
 class Products(models.Model):
     code = models.CharField(max_length=7)
     description = models.CharField(max_length=85)
-    tc = models.BooleanField(default=False)
+    tc2 = models.BooleanField(default=False)
     price = models.FloatField()
     stock = models.BooleanField(default=True)
 
