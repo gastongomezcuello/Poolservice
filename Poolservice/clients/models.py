@@ -5,4 +5,7 @@ from django.db import models
 class Clients(models.Model):
     name = models.CharField(max_length=40)
     kind = models.CharField(max_length=20)
-    
+    email = models.EmailField(max_length=40)
+    phone = models.CharField(max_length=20)
+    address = models.CharField(max_length=40)
+    city = models.CharField(max_length=40)

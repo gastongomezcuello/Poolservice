@@ -40,6 +40,7 @@ BASE_APPS = [
 ]
 MY_APPS = [
     'products',
+    'clients',
 ]
 THIRD_APPS = [
 
