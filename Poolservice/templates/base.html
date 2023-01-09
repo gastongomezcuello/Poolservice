@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="flex-container">
-                <a href=""></a>
+            <div class="container__flex-container">
+                <a href="" class="container__flex-container-a"></a>
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="">Branches</a></li>
@@ -20,28 +21,31 @@
                     <li><a href="">FAQs</a></li>
                     <li><a href="">About</a></li>
                 </ul>
-                <form></form>
+                <form >
+                    <input type="search">
+                </form>
                 <div>
-                    <button type="button" class=""></button>
-                    <button type="button" class=""></button>
+                    <button type="button" class="">Login</button>
+                    <button type="button" class="">Sign-Up</button>
                 </div>
             </div>
         </div>
 
     </header>
+    <div class="content">
 
     {% block content %} {% endblock %}
-
-    <div class="grid-container">
-        <footer>
-            <div>
+    </div>
+    <div class="footer-container">
+        <footer class="footer-container__footer">
+            <div class="footer-container__footer-div">
                 <a href=""></a>
                 <span></span>
             </div>
             <ul>
-                <li><a href=""></a></li>    
-                <li><a href=""></a></li>    
-                <li><a href=""></a></li>
+                <li><a href="">Facebook</a></li>    
+                <li><a href="">Instagram</a></li>    
+                <li><a href="">Whatsapp</a></li>
             </ul>
             
         </footer>

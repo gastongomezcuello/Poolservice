@@ -1,7 +1,30 @@
-div.flex-container {
-    display: flex;
+
+body {
+    background-color: #6ff;
+
+
+}
+button {
+    padding: 2px;
+    border: 5px solid transparent ;
+    border-radius: 5px;
+    
 }
 
-div.grid-container {
+div.flex-container {
+    display: flexbox;
+    width: 100vw;
+    
+}
+.container__flex-container ul {
+    background-color: #5df;
+}
+
+
+.footer-container {
     display: grid;
+    width: 100vw;
+    height: 20vh;
+    border-style: inset;
+    border-color: black;
 }
