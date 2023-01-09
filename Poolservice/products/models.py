@@ -3,11 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Products(models.Model):
-    code = models.CharField(max_length=7)
-    description = models.CharField(max_length=85)
-    tc2 = models.BooleanField(default=False)
-    price = models.FloatField()
-    stock = models.BooleanField(default=True)
+    Code = models.CharField(max_length=7)
+    Description = models.CharField(max_length=85)
+    TC2 = models.CharField(max_length=3)
+    Price = models.FloatField()
+    
 
     def _str_(self):
         return self.name
