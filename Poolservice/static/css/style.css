@@ -1,30 +1,51 @@
 
 body {
-    background-color: #6ff;
+    background-color: #7ef;
 
 
 }
-button {
+.border {
     padding: 2px;
     border: 5px solid transparent ;
     border-radius: 5px;
     
 }
 
-div.flex-container {
-    display: flexbox;
-    width: 100vw;
-    
+input {
+    outline-color: #5df;
 }
-.container__flex-container ul {
+li.inline {
+    box-sizing: content-box;
+    display: inline;
+
+}
+
+.container {
+    height: 60px;
     background-color: #5df;
 }
 
 
+.container__flex-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container__flex-container-a, .container__flex-container-div {
+    margin: 0 6px;
+}
+
+.container__flex-container-ul {
+    margin: 0 5px;
+}
+.container__flex-container-form {
+    margin: 0 3px;
+}
 .footer-container {
     display: grid;
     width: 100vw;
     height: 20vh;
-    border-style: inset;
-    border-color: black;
+    background-color: #17a;
 }
