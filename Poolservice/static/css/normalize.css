@@ -203,6 +203,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  appearance: none;
   -webkit-appearance: button;
 }
 
@@ -295,6 +296,7 @@ textarea {
  */
 
 [type="search"] {
+  appearance: none;
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
