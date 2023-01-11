@@ -4,5 +4,12 @@
 
 {% block content %}
     <h1>Hola desde productos</h1>
+    <div>
+        {% for product in products %}
+            <div>
+                {{product.description}}
+            </div>
+        {% endfor %}
+    </div>
     <a href="/products/stock-check">Revisar Stock</a>
 {% endblock %}
