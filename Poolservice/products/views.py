@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from products.models import Product
 from products.forms import ProductForm
-from products.templatetags.products_maths import real_price
+
 
 # Create your views here.
 
