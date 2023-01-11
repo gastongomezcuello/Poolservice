@@ -5,6 +5,6 @@ from products.models import Products
 
 @admin.register(Products)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('Code','Description','TC2', 'Price',)
-    list_filter = ('TC2',)
+    list_display = ('Code','Description', 'TC2','Price', 'Stock',)
+    list_filter = ('TC2', 'Stock',)
     search_fields = ('Description',)

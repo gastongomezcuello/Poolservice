@@ -5,8 +5,10 @@ from django.db import models
 class Products(models.Model):
     Code = models.CharField(max_length=7)
     Description = models.CharField(max_length=85)
-    TC2 = models.CharField(max_length=3)
+    TC2 = models.CharField(max_length=4)
     Price = models.FloatField()
+    Stock = models.BooleanField(default=False)
+    
     
 
     def _str_(self):

@@ -49,10 +49,10 @@ class Command(BaseCommand):
         df = swap_columns(df, 'Price', 'TC2')
         df = df.reset_index()
         df = df.rename(columns = {'index': 'id'})
-        
+        df['Stock'] = False
         
         engine = create_engine('sqlite:///db.sqlite3')
         
-        df.to_sql(Products._meta.db_table, if_exists='replace', con=engine, index=True )
+        df.to_sql(Products._meta.db_table, if_exists='replace', con=engine, index=False )
         
     
