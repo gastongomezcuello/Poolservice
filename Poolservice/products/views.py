@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from products.models import Products
+from products.forms import ProductForm
 
 # Create your views here.
 
@@ -8,7 +9,7 @@ def stock_check (request):
         context ={
             'form' : ProductForm()
         }
-        return render(request, 'products/stock_check.html', context)
+        return render(request, 'products/stock.html', context)
     # elif request.method == 'POST':
     #     form = ProductForm(request.POST)
     #     if form.is_valid():
