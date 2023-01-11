@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from products.models import Products
+from products.models import Product
 # Register your models here.
 
-@admin.register(Products)
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('Code','Description', 'TC2','Price', 'Stock',)
-    list_filter = ('TC2', 'Stock',)
-    search_fields = ('Description',)
+    list_display = ('code','description', 'tc2','price', 'stock',)
+    list_filter = ('tc2', 'stock',)
+    search_fields = ('description',)

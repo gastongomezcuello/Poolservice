@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-class Products(models.Model):
-    Code = models.CharField(max_length=7)
-    Description = models.CharField(max_length=85)
-    TC2 = models.CharField(max_length=4)
-    Price = models.FloatField()
-    Stock = models.BooleanField(default=False)
+class Product(models.Model):
+    code = models.CharField(max_length=7)
+    description = models.CharField(max_length=85)
+    tc2 = models.CharField(max_length=4)
+    price = models.FloatField()
+    stock = models.BooleanField(default=False)
     
     
 

@@ -1,6 +1,6 @@
 import pandas as pd
 from django.core.management.base import BaseCommand
-from products.models import Products
+from products.models import Product
 from sqlalchemy import create_engine
 
 class Command(BaseCommand):
@@ -53,6 +53,6 @@ class Command(BaseCommand):
         
         engine = create_engine('sqlite:///db.sqlite3')
         
-        df.to_sql(Products._meta.db_table, if_exists='replace', con=engine, index=False )
+        df.to_sql(Product._meta.db_table, if_exists='replace', con=engine, index=False )
         
     

@@ -2,13 +2,13 @@ from django.db import models
 
 # Create your models here.
 
-class Orders(models.Model):
+class Order(models.Model):
     CHOICES = (
-        ('Cash', 'Cash'), 
-        ('Debit', 'Debit'), 
-        ('Credit', 'Credit'), 
-        ('Check', 'Check'), 
-        ('Trasnfer', 'Trasnfer'), 
+        ('cash', 'cash'), 
+        ('debit', 'debit'), 
+        ('credit', 'credit'), 
+        ('check', 'check'), 
+        ('crasnfer', 'crasnfer'), 
     )
     
     client = models.CharField(max_length=100)
