@@ -15,9 +15,18 @@ def create_product (request):
         form = ProductForm(request.POST)
         if form.is_valid():
             Product.objects.create(**form.cleaned_data)
-            return redirect('/products/')
+            context = {
+                'message': 'Producto agregado correctamente'
+            }
+            return render(request, 'products/create-product.html', context=context)
             
-            
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form': ProductForm()
+            }
+            return render(request, 'products/create-product.html', context=context)
+
 def list_products (request):
     products = Product.objects.all()
     

@@ -7,7 +7,7 @@ class ClientForm(forms.Form):
     )
 
     name = forms.CharField(max_length=40 )
-    kind = forms.CharField(max_length=20 , choices=KIND_CHOICES)
+    kind = forms.ChoiceField(choices=KIND_CHOICES)
     email = forms.EmailField(max_length=40 )
     phone = forms.CharField(max_length=20 )
     address = forms.CharField(max_length=40 )
