@@ -16,6 +16,9 @@ class Client(models.Model):
     address = models.CharField(max_length=40 , verbose_name='Dirección')
     city = models.CharField(max_length=40 , verbose_name='Ciudad')
 
+    def __str__(self):
+        return f'{self.name}'
+
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'

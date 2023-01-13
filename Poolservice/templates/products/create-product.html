@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Stock - Poolservice {% endblock %}
+
+{% block content %}
+    <h1>Hola desde stockchek</h1>
+    
+    {% if form %}
+        
+        <form action="" method="POST">
+
+            {% csrf_token %}
+
+            <table>
+                {{form.as_table}}
+            </table>
+
+            <input type="submit" value="Actualizar stock">
+
+        </form>
+    
+    {% endif %}
+
+{% endblock %}

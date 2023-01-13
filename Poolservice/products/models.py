@@ -9,8 +9,8 @@ class Product(models.Model):
     price = models.FloatField(verbose_name='Precio')
     stock = models.BooleanField(default=False)
 
-    def _str_(self):
-        return self.description
+    def __str__(self):
+        return f'{self.description}'
 
     class Meta:
         verbose_name = 'Producto'
