@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Pedidos - Poolservice {% endblock %}
+
+{% block content %}
+    <h1>Hola desde pedidos</h1>
+    <div>
+        {% for order in orders %}
+            <div>
+                {{order.number}}{{order.client}}{{order.order_date}}
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/orders/create-order">Nuevo Pedido</a>
+    
+{% endblock %}
+
+
+    

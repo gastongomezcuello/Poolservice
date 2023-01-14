@@ -3,9 +3,18 @@ from django.db import models
 # Create your models here.
 
 class Product(models.Model):
-    code = models.CharField(max_length=7 , verbose_name='Código')
+
+    change_types = [
+        ('Vulcano tc1','Vulcano tc1'),
+        ('Vulcano tc2','Vulcano tc2'),
+        ('Makkintal','Makkintal'),
+        ('Moldear','Moldear'),
+        
+    ]
+
+    code = models.CharField(unique=True  , max_length=10 , verbose_name='Código')
     description = models.CharField(max_length=85 , verbose_name='Descripción')
-    tc2 = models.CharField(max_length=4 , verbose_name='TC2')
+    tc = models.CharField(max_length=20 , verbose_name='Tipo de cambio' , choices=change_types)
     price = models.FloatField(verbose_name='Precio')
     stock = models.BooleanField(default=False)
 

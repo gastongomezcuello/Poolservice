@@ -7,11 +7,10 @@
     <div>
         {% for product in products %}
             <div>
-                {{product.description}}
+                {{product.code}}{{product.description}}{{product.price}}
             </div>
         {% endfor %}
     </div>
     <a href="/products/create-product">Nuevo Producto</a>
-    <a href="/orders/create-order">Nuevo Pedido</a>
-    <a href="/clients/create-client">Nuevo Cliente</a>
+    
 {% endblock %}

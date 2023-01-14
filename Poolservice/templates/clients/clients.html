@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Clientes - Poolservice {% endblock %}
+
+{% block content %}
+    <h1>Hola desde clientes</h1>
+    <div>
+        {% for client in clients %}
+            <div>
+                {{client.name}}{{client.kind}}{{client.phone}}
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/clients/create-client">Nuevo Cliente</a>
+    
+{% endblock %}
+
