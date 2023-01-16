@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from products.models import Product
 from products.forms import ProductForm
+from django.db.models import Q
 
 
 # Create your views here.
@@ -29,10 +30,20 @@ def create_product (request):
 
 def list_products (request):
     products = Product.objects.all()
-    
+    queryset = request.GET.get('search')
+    if queryset:
+        products = Product.objects.filter(
+            
+            Q(code__icontains = queryset) |
+            Q(description__icontains = queryset)
+            ).distinct()
 
-    context = {
-        'products' : products ,
-       
-    }
+    if len(products) > 0:    
+        context = {
+            'products' : products ,
+        }
+    else:
+        context = {
+            'message' : 'No se encontraron resultados'
+        }
     return render (request, 'products/products.html', context=context)

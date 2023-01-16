@@ -5,11 +5,16 @@
 {% block content %}
     <h1>Hola desde productos</h1>
     <div>
+        {% if products %}
         {% for product in products %}
             <div>
                 {{product.code}}{{product.description}}{{product.price}}
             </div>
         {% endfor %}
+        {% endif %}
+        {% if message %}
+            <h2>{{message}}</h2>
+        {% endif %}
     </div>
     <a href="/products/create-product">Nuevo Producto</a>
     

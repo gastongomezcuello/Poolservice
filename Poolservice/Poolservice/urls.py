@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Poolservice.views import index , about , contact
+from Poolservice.views import index , about , contact 
 
 
 urlpatterns = [
