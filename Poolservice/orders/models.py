@@ -13,7 +13,7 @@ class Order(models.Model):
         ('Cheque', 'Cheque'), 
         ('Transferencia', 'Transferencia'), 
     )
-    
+    order_number = models.IntegerField(auto_created=True, null=True, blank=True, unique=True, verbose_name='Número de pedido')
     client = models.ForeignKey(Client, null=True, blank=True, on_delete=models.CASCADE, verbose_name='Cliente')
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='Producto')
     quantity = models.FloatField(verbose_name='Cantidad', default=1)

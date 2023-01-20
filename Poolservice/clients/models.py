@@ -8,7 +8,7 @@ class Client(models.Model):
         ('Revendedor/a', 'Revendedor/a'),
         ('Cliente', 'Cliente'),        
     )
-
+    client_number = models.IntegerField(auto_created=True, unique=True, blank=True, null=True, verbose_name='Número de cliente')
     name = models.CharField(max_length=40 , verbose_name='Nombre')
     kind = models.CharField(max_length=20 , choices=KIND_CHOICES, verbose_name='Tipo')
     email = models.EmailField(max_length=40 , verbose_name='Correo')

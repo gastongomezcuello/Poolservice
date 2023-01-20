@@ -5,12 +5,18 @@
 {% block content %}
     <h1>Hola desde pedidos</h1>
     <div>
+        {% if orders %}
         {% for order in orders %}
             <div>
                 {{order.number}}{{order.client}}{{order.order_date}}
             </div>
         {% endfor %}
+        {% endif %}
+        {% if message_orders %}
+            <h2>{{message_orders}}</h2>
+        {% endif %}
     </div>
+
     <a href="/orders/create-order">Nuevo Pedido</a>
     
 {% endblock %}

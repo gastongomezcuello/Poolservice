@@ -24,12 +24,25 @@
                     <li class="inline"><a href="/about">About us</a></li>
                     <li class="inline"><a href="/contact">Contact us</a></li>
                 </ul>
+                {% if products or message_products %}
                 <form class="container__flex-container-form border">
-                    <input class="border" type="search" placeholder="Search" name="search">
+                    <input class="border" type="search" placeholder="Código o nombre del producto" name="search">
                 </form>
+                {% elif clients or message_clients %}
+                <form class="container__flex-container-form border">
+                    <input class="border" type="search" placeholder="Nombre del cliente" name="search">
+                </form>
+                {% elif orders or message_orders %}
+                <form class="container__flex-container-form border">
+                    <input class="border" type="search" placeholder="Número de pedido" name="search">
+                </form>
+                {% else %}
+                
+                {% endif %}
                 <div class="container__flex-container-div">
                     <a href="/admin"><button class="border" type="button">Login</button></a>
                     <a href=""><button class="border" type="button">Sign-Up</button></a>
+                    <a href=""><button class="border" type="button">Logout</button></a>
                 </div>
             </div>
         </div>

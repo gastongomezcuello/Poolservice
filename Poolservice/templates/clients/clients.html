@@ -5,11 +5,16 @@
 {% block content %}
     <h1>Hola desde clientes</h1>
     <div>
+        {% if clients %}
         {% for client in clients %}
             <div>
                 {{client.name}}{{client.kind}}{{client.phone}}
             </div>
         {% endfor %}
+        {% endif %}
+        {% if message_clients %}
+            <h2>{{message_clients}}</h2>
+        {% endif %}
     </div>
     <a href="/clients/create-client">Nuevo Cliente</a>
     

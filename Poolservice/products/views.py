@@ -44,6 +44,6 @@ def list_products (request):
         }
     else:
         context = {
-            'message' : 'No se encontraron resultados'
+            'message_products' : 'No se encontraron resultados'
         }
     return render (request, 'products/products.html', context=context)

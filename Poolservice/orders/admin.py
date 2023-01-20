@@ -5,4 +5,4 @@ from orders.models import Order
 
 @admin.register(Order)
 class OrdersAdmin(admin.ModelAdmin):
-    list_display = ['client', 'product', 'quantity', 'order_date', 'payment_method', ]
+    list_display = ['order_number','client', 'product', 'quantity', 'order_date', 'payment_method', ]
