@@ -9,6 +9,7 @@
         {% for product in products %}
             <div>
                 {{product.code}}{{product.description}}{{product.price}}
+                <a href="/products/update-product/{{product.id}} ">Actualizar</a>
             </div>
         {% endfor %}
         {% endif %}

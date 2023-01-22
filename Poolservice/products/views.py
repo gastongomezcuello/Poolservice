@@ -28,6 +28,34 @@ def create_product (request):
             }
             return render(request, 'products/create-product.html', context=context)
 
+def update_product (request, id):
+    product = Product.objects.get(id=id)
+    if request.method == 'GET':
+        context ={
+            'form' : ProductForm(
+                initial={
+                    'stock': product.stock,
+                    'price': product.price,
+            })
+        }
+        return render(request, 'products/update-product.html', context=context)
+    elif request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            Product.objects.update(**form.cleaned_data)
+            context = {
+                'message': 'Producto actualizado correctamente'
+            }
+            return render(request, 'products/update-product.html', context=context)
+           
+            
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form': ProductForm()
+            }
+            return render(request, 'products/create-product.html', context=context)
+
 def list_products (request):
     products = Product.objects.all()
     queryset = request.GET.get('search')

@@ -9,6 +9,8 @@ class Product(models.Model):
         ('Vulcano tc2','Vulcano tc2'),
         ('Makkintal','Makkintal'),
         ('Moldear','Moldear'),
+        ('LCI','LCI'),
+        ('Ecopools','Ecopools')
         
     ]
 
