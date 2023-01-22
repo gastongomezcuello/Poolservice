@@ -1,12 +1,15 @@
 
 body {
-    background-color: #7ef;
+    background-color: #5cf;
 
 
 }
-[type="button"]:hover {
+[type="button"], [button='button']:hover {
     cursor: pointer;
     cursor: hand;
+}
+[button='button'] {
+    background-color: #fff;
 }
 .border {
     padding: 2px;
@@ -16,7 +19,7 @@ body {
 }
 
 input {
-    outline-color: #5df;
+    outline-color: #4be;
 }
 li.inline {
     box-sizing: content-box;
@@ -26,7 +29,7 @@ li.inline {
 
 .container {
     height: 60px;
-    background-color: #5df;
+    background-color: #4be;
 }
 
 
@@ -37,7 +40,7 @@ li.inline {
     align-items: center;
 }
 
-.container__flex-container-a, .container__flex-container-div {
+.container__flex-container-a  {
     margin: 0 6px;
 }
 
@@ -47,6 +50,11 @@ li.inline {
 .container__flex-container-form {
     margin: 0 3px;
 }
+.container__flex-container-div {
+    margin-left: auto;
+    margin-right: 6px;
+}
+
 .footer-container {
     display: grid;
     width: 100vw;

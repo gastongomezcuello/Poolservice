@@ -38,7 +38,7 @@ def list_orders (request):
     if queryset:
         orders = Order.objects.filter(
 
-            Q(order_number__icontains = querysety)
+            Q(id__icontains = queryset)
         )
     if len(orders) > 0:
         context = {

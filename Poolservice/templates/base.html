@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="shorcut icon" type="image/x-icon" href="{% static 'ico/logo.ico' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="container__flex-container">
-                <a href="/" class="container__flex-container-a">Logo</a>
+                <a href="/" class="container__flex-container-a logo"><img width="50px" height="50px" src="{% static 'ico/logo.ico' %}"></a>
                 <ul class="container__flex-container-ul">
                     <li class="inline"><a href="/">Home</a></li>
                     <!-- <li class="inline"><a href="">Branches</a></li> -->
@@ -27,14 +28,17 @@
                 {% if products or message_products %}
                 <form class="container__flex-container-form border">
                     <input class="border" type="search" placeholder="Código o nombre del producto" name="search">
+                    <button class="border" type="submit" button="button"><img width="14px" height="14px" src="{% static 'ico/search.ico' %}"></button>
                 </form>
                 {% elif clients or message_clients %}
                 <form class="container__flex-container-form border">
                     <input class="border" type="search" placeholder="Nombre del cliente" name="search">
+                    <button class="border" type="submit" button="button"><img width="14px" height="14px" src="{% static 'ico/search.ico' %}"></button>
                 </form>
                 {% elif orders or message_orders %}
                 <form class="container__flex-container-form border">
                     <input class="border" type="search" placeholder="Número de pedido" name="search">
+                    <button class="border" type="submit" button="button"><img width="14px" height="14px" src="{% static 'ico/search.ico' %}"></button>
                 </form>
                 {% else %}
                 
@@ -54,11 +58,11 @@
     </div>
     <div class="footer-container">
         <footer class="footer-container__footer">
-            <div class="footer-container__footer-div inline">
-                <a href="/">Logo</a>
-                <span>Poolservice , todos los derechos reservados</span>
+            <div class="footer-container__footer-div">
+                <a class='inline'href="/"><img width="100px" height="100px" src="{% static 'ico/logo.ico' %}"></a>
+                <span class='inline'>Poolservice , todos los derechos reservados</span>
             </div>
-            <ul class="inline">
+            <ul>
                 <li class="inline"><a href="https://www.facebook.com/poolservice1" target="_blank">Facebook</a></li>    
                 <li class="inline"><a href="https://instagram.com/poolservice_cba?igshid=YmMyMTA2M2Y=" target="_blank">Instagram</a></li>    
                 <li class="inline"><a href="https://wa.me/+5493516165581" target="_blank">Whatsapp</a></li>
