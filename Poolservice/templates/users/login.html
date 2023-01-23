@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Iniciar Sesión - Poolservice {% endblock %}
+
+{% block content %}
+    <h1>Inicia tu Sesión</h1>
+    
+    {% if form %}
+        
+        <form action="" method="POST">
+
+            {% csrf_token %}
+
+            <table>
+                {{form.as_table}}
+            </table>
+
+            <input type="submit" value="Iniciar Sesión">
+
+        </form>
+    
+    {% endif %}
+    <!-- {% if error %}
+        <h2>Errores</h2>
+        {{error}}
+    {% endif %} -->
+    <!-- {% if message %}
+        <h2>{{message}}</h2>
+    {% endif %} -->
+
+{% endblock %}

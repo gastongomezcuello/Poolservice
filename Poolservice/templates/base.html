@@ -44,9 +44,13 @@
                 
                 {% endif %}
                 <div class="container__flex-container-div">
-                    <a href="/admin"><button class="border" type="button">Login</button></a>
-                    <a href=""><button class="border" type="button">Sign-Up</button></a>
-                    <a href=""><button class="border" type="button">Logout</button></a>
+                    {% if request.user.is_authenticated %}
+                    {{request.user}}
+                    <a href="/users/logout"><button class="border" type="button">Logout</button></a>
+                    {% else %}
+                    <a href="/users/login"><button class="border" type="button">Login</button></a>
+                    <a href="/users/signup"><button class="border" type="button">Sign-Up</button></a>
+                    {% endif %}
                 </div>
             </div>
         </div>

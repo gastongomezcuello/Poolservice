@@ -42,6 +42,7 @@ MY_APPS = [
     'products',
     'clients',
     'orders',
+    'users',
 ]
 THIRD_APPS = [
 

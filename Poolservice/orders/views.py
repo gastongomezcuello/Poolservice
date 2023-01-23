@@ -13,8 +13,7 @@ def create_order(request):
             context = {
                 'message': 'Pedido creado correctamente'
             }
-            
-        
+             
         else:
             context = {
                 'form_errors': form.errors,
@@ -24,11 +23,7 @@ def create_order(request):
     else:
         context = {
             'form': OrderForm()
-        }       
-    if request.method == 'GET':
-        context = {
-            'form': OrderForm()
-        }       
+        }            
     
     return render(request, 'orders/create-order.html', context=context)
 

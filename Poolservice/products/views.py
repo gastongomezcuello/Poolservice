@@ -11,7 +11,7 @@ def create_product (request):
         context ={
             'form' : ProductForm()
         }
-        return render(request, 'products/create-product.html', context=context)
+        
     elif request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
@@ -19,14 +19,13 @@ def create_product (request):
             context = {
                 'message': 'Producto agregado correctamente'
             }
-            return render(request, 'products/create-product.html', context=context)
             
         else:
             context = {
                 'form_errors': form.errors,
                 'form': ProductForm()
             }
-            return render(request, 'products/create-product.html', context=context)
+    return render(request, 'products/create-product.html', context=context)
 
 def update_product (request, id):
     product = Product.objects.get(id=id)
