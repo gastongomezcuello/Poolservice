@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required  
 
 # Create your views here.
 
@@ -36,8 +38,9 @@ def signup_view(request):
         else:
             context = {
                 'form': form ,
-                'error': 'Error al crear el usuario'
+                'error': form.errors
                 }
+            print(form.errors)
             return render(request, 'users/signup.html', context=context)
     else:
         form = UserCreationForm()

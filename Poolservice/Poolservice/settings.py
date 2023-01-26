@@ -139,3 +139,4 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+LOGIN_URL = '/users/login'

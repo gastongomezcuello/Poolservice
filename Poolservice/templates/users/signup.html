@@ -4,7 +4,9 @@
 
 {% block content %}
     <h1>Crea tu ususario</h1>
-    
+    {% if error %}
+        {{error}}
+    {% endif %}
     {% if form %}
         
         <form action="" method="POST">
@@ -20,10 +22,7 @@
         </form>
     
     {% endif %}
-    {% if error %}
-        <h2>Errores</h2>
-        {{error}}
-    {% endif %}
+    
     <!-- {% if message %}
         <h2>{{message}}</h2>
     {% endif %} -->

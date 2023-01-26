@@ -53,6 +53,6 @@ class Command(BaseCommand):
         
         engine = create_engine('sqlite:///db.sqlite3')
         
-        df.to_sql(Product._meta.db_table, if_exists='replace', con=engine, index=False )
+        df.to_sql(Product._meta.db_table, if_exists='append', con=engine, index=False )
         
     
