@@ -8,7 +8,7 @@
         {% if orders %}
         {% for order in orders %}
             <div>
-                {{order.number}}{{order.client}}{{order.order_date}}
+                {{order.number}}{{order.client}} el dia {{order.order_date}} compró {{order.product}}
             </div>
         {% endfor %}
         {% endif %}

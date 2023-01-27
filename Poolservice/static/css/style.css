@@ -1,6 +1,6 @@
 
 body {
-    background-color: #5cf;
+    background-color: #fff;
 
 
 }
@@ -55,10 +55,13 @@ li.inline {
     margin-left: auto;
     margin-right: 6px;
 }
+.footer-container__footer-copyright{
+    background-color: #039;
+}
 
-.footer-container {
+.footer-container__footer {
     display: grid;
     width: 100vw;
-    height: 20vh;
+    height: 40vh;
     background-color: #15a;
 }

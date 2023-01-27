@@ -9,7 +9,9 @@
         {% for product in products %}
             <div>
                 {{product.code}}{{product.description}}{{product.price}}
+                {% if request.user.is_superuser %}
                 <a href="/products/update-product/{{product.id}} ">Actualizar</a>
+                {% endif %}
             </div>
         {% endfor %}
         {% endif %}
