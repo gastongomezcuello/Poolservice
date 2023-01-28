@@ -55,6 +55,9 @@ li.inline {
     margin-left: auto;
     margin-right: 6px;
 }
+.grid-container{
+    display: grid;
+}
 .footer-container__footer-copyright{
     background-color: #039;
 }

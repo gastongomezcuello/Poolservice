@@ -35,6 +35,7 @@ class Command(BaseCommand):
         # drop the new products from tc2 and saving
         last_2 = tc2["tc"].isin(["TC 2"])
         tc2 = tc2[last_2]
+        tc2 = tc2.replace(['TC 2'],'Vulcano tc2')
 
         # merge the dataframes and save the dataframe to the database
         df = pd.merge(a_ll, tc2, how='outer')
@@ -50,7 +51,7 @@ class Command(BaseCommand):
         df = df.reset_index()
         df = df.rename(columns = {'index': 'id'})
         df['stock'] = False
-        df['tc'].fillna('TC 1', inplace=True)
+        df['tc'].fillna('Vulcano tc1', inplace=True)
         
        
         
