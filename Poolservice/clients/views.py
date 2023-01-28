@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from clients.models import Client
 from clients.forms import ClientForm
 from django.db.models import Q
@@ -43,7 +42,7 @@ def list_clients (request):
         }
     else :
         context = {
-            'message_clients': 'No se encontraron clientes con esos datos'
+            'message_clients': 'No se encontraron clientes'
         }   
 
     return render (request, 'clients/clients.html', context=context)

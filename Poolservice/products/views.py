@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from products.models import Product
 from products.forms import ProductForm, UpdateProductForm
 from django.db.models import Q
 
 
 # Create your views here.
-
+@login_required()
 def create_product (request):
     if request.method == 'GET':
         context ={
@@ -26,7 +28,7 @@ def create_product (request):
                 'form': ProductForm()
             }
     return render(request, 'products/create-product.html', context=context)
-
+@login_required()
 def update_product (request, id):
     product = Product.objects.get(id=id)
     if request.method == 'GET':
