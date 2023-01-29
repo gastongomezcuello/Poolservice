@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 
 
 def index(request):
@@ -8,6 +9,5 @@ def index(request):
 def about(request):
     return render(request, 'about.html', context={})
 
-def contact(request):
-    return render(request, 'contact.html', context={})
+
     

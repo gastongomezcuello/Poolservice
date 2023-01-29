@@ -41,6 +41,6 @@ def list_orders (request):
         }
     else: 
         context = {
-            'message_orders': 'No hay pedidos registrados con ese número'
+            'message_orders': 'No hay pedidos registrados'
         }
     return render (request, 'orders/orders.html', context=context)

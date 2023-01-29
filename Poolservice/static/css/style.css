@@ -68,3 +68,7 @@ li.inline {
     height: 40vh;
     background-color: #15a;
 }
+
+textarea {
+    outline-color: #49e ;
+}

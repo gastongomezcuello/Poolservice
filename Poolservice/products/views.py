@@ -36,14 +36,14 @@ def update_product (request, id):
             'form' : UpdateProductForm(
                 initial={
                     'stock': product.stock,
-                    'price': product.price,
+                    'price': product['price'],
             })
         }
         return render(request, 'products/update-product.html', context=context)
     elif request.method == 'POST':
         form = UpdateProductForm(request.POST)
         if form.is_valid():
-            product.price = form.cleaned_data['price']
+            product['price'] = form.cleaned_data['price']
             product.stock = form.cleaned_data['stock']
             product.save()
                 
@@ -61,26 +61,29 @@ def update_product (request, id):
             return render(request, 'products/update-product.html', context=context)
 
 def list_products (request):
-    products = Product.objects.all()
+    products = list(Product.objects.all())
+    
+   
+    
     TC1 = 9.83
     TC2 = 10.22
     Makkintal = 200
     Moldear = 210
 
     for product in products:
-        if products.values('tc') == 'Vulcano tc1':
-            products.price = products_all.price * 29.9 * TC1 
-        elif products.values('tc') == 'Vulcano tc2':
-            products.price = products_all.price * 29.9 * TC2
-        elif products.values('tc') == 'Makkintal':
-            products.price = products_all.price * 200 * Makkintal
-        elif products.values('tc') == 'Moldear':
-            products.price = products_all.price * Moldear
+        if products[2] == 'Vulcano tc1':
+            products[3] = products[3] * 29.9 * TC1 
+        elif products[2] == 'Vulcano tc2':
+            products[3] = products[3] * 29.9 * TC2
+        elif products[2] == 'Makkintal':
+            products[3] = products[3] * 200 * Makkintal
+        elif products[2] == 'Moldear':
+            products[3] = products[3] * Moldear
             #the following two lines are just for order
-        elif products.values('tc') == 'LCI':
-            products.price = products.values('price') 
+        elif products[2] == 'LCI':
+            products[3] = products[3] 
         else :
-            products.price = products.values('price')
+            products[3] = products[3]
 
     queryset = request.GET.get('search')
     if queryset:

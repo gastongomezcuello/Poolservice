@@ -11,6 +11,7 @@
                 <div class="grid-container">
                     <div>Código : {{product.code}}</div>
                     <div>Descripción : {{product.description}}</div>
+                    <div>TC : {{product.tc}}</div>
                     <div>Precio : {{product.price}}</div>
                     {% if request.user.is_superuser %}
                     <div><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
@@ -23,6 +24,9 @@
             <h2>{{message_products}}</h2>
         {% endif %}
     </div>
-    <a href="/products/create-product">Nuevo Producto</a>
+    {% if request.user.is_superuser %}
+        <a href="/products/create-product">Nuevo Producto</a>
+    {% endif %}   
+    
     
 {% endblock %}
