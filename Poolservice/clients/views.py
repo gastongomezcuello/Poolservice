@@ -2,8 +2,9 @@ from django.shortcuts import render
 from clients.models import Client
 from clients.forms import ClientForm
 from django.db.models import Q
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+@login_required()
 def create_client(request):
 
     if request.method == 'POST':
@@ -25,7 +26,7 @@ def create_client(request):
                 'form': ClientForm()
             }          
     return render(request, 'clients/create-client.html', context=context)
-
+@login_required()
 def list_clients (request):
     clients = Client.objects.all()
     queryset = request.GET.get('search')

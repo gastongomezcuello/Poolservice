@@ -4,10 +4,6 @@ body {
 
 
 }
-.inline {
-    box-sizing: content-box;
-    display: inline;
-}
 [type="button"], [button='button']:hover {
     cursor: pointer;
     cursor: hand;
@@ -75,12 +71,4 @@ li.inline {
 
 textarea {
     outline-color: #49e ;
-}
-
-.flex-container-products {
-    display: flex;
-}
-
-.flex-container-queryset {
-    display: flex;
 }

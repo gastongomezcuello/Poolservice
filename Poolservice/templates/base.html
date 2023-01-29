@@ -18,9 +18,11 @@
                 <ul class="container__flex-container-ul">
                     <li class="inline"><a href="/">Home</a></li>
                     <!-- <li class="inline"><a href="">Branches</a></li> -->
+                    {% if request.user.is_superuser %}
                     <li class="inline"><a href="/clients/list-clients">Clients</a></li>
-                    <li class="inline"><a href="/products/list-products">Products</a></li>
                     <li class="inline"><a href="/orders/list-orders">Orders</a></li>
+                    {% endif %}
+                    <li class="inline"><a href="/products/list-products">Products</a></li>
                     <li class="inline"><a href="/about">About us</a></li>
                     <li class="inline"><a href="/contact/contact">Contact us</a></li>
                 </ul>

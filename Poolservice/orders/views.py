@@ -2,9 +2,10 @@ from django.shortcuts import render
 from orders.models import Order
 from orders.forms import OrderForm
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required()
 def create_order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -26,7 +27,7 @@ def create_order(request):
         }            
     
     return render(request, 'orders/create-order.html', context=context)
-
+@login_required()
 def list_orders (request):
     orders = Order.objects.all()
     queryset = request.GET.get('search')

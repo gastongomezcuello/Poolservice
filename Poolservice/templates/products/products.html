@@ -7,36 +7,53 @@
     <div>
         {% if products %}
         <div>
-            <div class="flex-container-products">
-                <div class="flex-container-products__item flex-container-queryset">
+            <div class="flex-container-products" style="
+                display: flex;
+                width: 100vw; ">
+                <div class="flex-container-products__item grid-container-queryset" style="
+                display: grid;
+                ">
                     {% for product in products %}
-                        <div class="flex-container-queryset__item inline" name='code' style="background-color: yellow;">Código : {{product.code}}</div>
-                        <div class="flex-container-queryset__item inline" name="description" style="background-color: yellowgreen;">Descripción : {{product.description}}</div>
-                        <div class="flex-container-queryset__item inline" name="tc" style="background-color: orangered;">TC : {{product.tc}}</div>
+                        <div style="
+                        display: grid;
+                        width: 70vw;
+                        grid-template-columns: 12% 70% 18%;">
+                            <div class="flex-container-queryset__item" name='code' style="background-color: yellow;">{{product.code}}</div>
+                            <div class="flex-container-queryset__item" name="description" style="background-color: yellowgreen;">{{product.description}}</div>
+                            <div class="flex-container-queryset__item" name="tc" style="background-color: orangered;">{{product.tc}}</div>
+                        </div>
                     {% endfor %}
                 </div>
-                <div class="flex-container-products__item">
+                <div class="flex-container-products__item" style="
+                margin-left: auto;
+                margin-right: 0px;
+                ">
                     {% for price in prices %}
-                        <div class="inline" name="price" style="background-color:brown">Precio : {{price}}</div>
+                        <div  name="price" style="
+                        background-color:brown;
+                        padding-right: 2px;"> $ {{price}}</div>
                     {% endfor %}
                 </div>
-                <div class="flex-container-products__item"> 
+                <div class="flex-container-products__item" style="
+                margin-left: 0px;
+                margin-right: auto;"> 
                     {% if request.user.is_superuser %}
                     {% for product in products %}                          
-                        <div class="inline" name="update" style="background-color: pink;"><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
+                        <div  name="update" style="background-color: pink;"><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
                     {% endfor %}
                     {% endif %}                 
                 </div>
             </div>
         
-        {% endif %}
+        
         {% if message_products %}
             <h2>{{message_products}}</h2>
         {% endif %}
-    </div>
+        </div>
+        {% endif %}
     {% if request.user.is_superuser %}
         <a href="/products/create-product">Nuevo Producto</a>
     {% endif %}   
-    
+    </div>
     
 {% endblock %}
