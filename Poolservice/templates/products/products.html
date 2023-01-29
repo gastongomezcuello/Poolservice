@@ -6,19 +6,29 @@
     <h1>Hola desde productos</h1>
     <div>
         {% if products %}
-        {% for product in products %}
-            <div>
-                <div class="grid-container">
-                    <div>Código : {{product.code}}</div>
-                    <div>Descripción : {{product.description}}</div>
-                    <div>TC : {{product.tc}}</div>
-                    <div>Precio : {{product.price}}</div>
+        <div>
+            <div class="flex-container-products">
+                <div class="flex-container-products__item flex-container-queryset">
+                    {% for product in products %}
+                        <div class="flex-container-queryset__item inline" name='code' style="background-color: yellow;">Código : {{product.code}}</div>
+                        <div class="flex-container-queryset__item inline" name="description" style="background-color: yellowgreen;">Descripción : {{product.description}}</div>
+                        <div class="flex-container-queryset__item inline" name="tc" style="background-color: orangered;">TC : {{product.tc}}</div>
+                    {% endfor %}
+                </div>
+                <div class="flex-container-products__item">
+                    {% for price in prices %}
+                        <div class="inline" name="price" style="background-color:brown">Precio : {{price}}</div>
+                    {% endfor %}
+                </div>
+                <div class="flex-container-products__item"> 
                     {% if request.user.is_superuser %}
-                    <div><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
+                    {% for product in products %}                          
+                        <div class="inline" name="update" style="background-color: pink;"><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
+                    {% endfor %}
                     {% endif %}                 
                 </div>
             </div>
-        {% endfor %}
+        
         {% endif %}
         {% if message_products %}
             <h2>{{message_products}}</h2>

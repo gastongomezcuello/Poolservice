@@ -3,29 +3,34 @@
 {% block title %} Contáctanos - Poolservice {% endblock %}
 
 {% block content %}
+    <div>
+        <div>
+            ¿Nesesitas asesoramiento? Mandanos tus datos para que podamos ayudarte. Podés adjuntar un archivo si necesitas brindar más detalles.
+            ¿Tenes alguna pregunta? Consulta las <a href="faqs/">Preguntas frecuentes</a>
+        </div>
+        <div>
+        {% if form %}
+            <h2>Comunicate con nuestro equipo de asesores</h2>
+            <form action="" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <table>
+                    {{form.as_table}}
+                </table>
+
+                <input type="submit" value="Enviar">
+
+            </form>
     
-    
-    {% if form %}
-        
-        <form action="" method="POST">
-
-            {% csrf_token %}
-
-            <table>
-                {{form.as_table}}
-            </table>
-
-            <input type="submit" value="Enviar">
-
-        </form>
-    
-    {% endif %}
-    <!-- {% if error %}
-        <h2>Errores</h2>
-        {{error}}
-    {% endif %} -->
-    <!-- {% if message %}
-        <h2>{{message}}</h2>
-    {% endif %} -->
-
+        {% endif %}
+        <!-- {% if error %}
+            <h2>Errores</h2>
+            {{error}}
+        {% endif %} -->
+        <!-- {% if message %}
+            <h2>{{message}}</h2>
+        {% endif %} -->
+        </div>
+    </div>
 {% endblock %}

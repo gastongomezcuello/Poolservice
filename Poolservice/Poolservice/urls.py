@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Poolservice.views import index , about 
+from Poolservice.settings import MEDIA_ROOT, MEDIA_URL
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -28,4 +31,4 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
     path('clients/', include('clients.urls')),
     path('users/', include('users.urls')),
-]
+] + static(MEDIA_URL, document_root=MEDIA_ROOT)

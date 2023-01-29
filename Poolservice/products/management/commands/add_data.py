@@ -40,6 +40,7 @@ class Command(BaseCommand):
         # merge the dataframes and save the dataframe to the database
         df = pd.merge(a_ll, tc2, how='outer')
 
+        # function to swap the columns to work properly with the database
         def swap_columns(df, col1, col2):
             col_list = list(df.columns)
             x, y = col_list.index(col1), col_list.index(col2)
@@ -48,13 +49,18 @@ class Command(BaseCommand):
             return df
 
         df = swap_columns(df, 'price', 'tc')
+
+        # changing the name of the id_column to work properly with the database
         df = df.reset_index()
         df = df.rename(columns = {'index': 'id'})
+        df = df.index + 1 
+
+        # adding a new column to the dataframe to work properly with the database
         df['stock'] = False
         df['tc'].fillna('Vulcano tc1', inplace=True)
         
        
-        
+        # creating the connection to the database and saving the dataframe to the database
         engine = create_engine('sqlite:///db.sqlite3')
         
         df.to_sql(Product._meta.db_table, if_exists='append', con=engine, index=False )
