@@ -9,5 +9,7 @@ def index(request):
 def about(request):
     return render(request, 'about.html', context={})
 
+def faqs(request):
+    return render(request, 'faqs.html', context={})
 
     

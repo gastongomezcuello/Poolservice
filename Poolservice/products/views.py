@@ -66,8 +66,9 @@ def update_product (request, id):
             return render(request, 'products/update-product.html', context=context)
 
 def list_products (request):
-    products = Product.objects.all()
+
     def get_price(products):
+    
 
         list_prices = list()
         TC1 = 9.83
@@ -91,13 +92,15 @@ def list_products (request):
                 else :
                     list_prices.append(round((product.price), 2))
         return list_prices
+    if request.method == 'GET':
+        products = Product.objects.all()
         list_prices = get_price(products)
 
         context = {
             'products' : products ,
             'prices' : list_prices,
         }
-        return render(request, 'products/products.html', context=context)
+    
 
     queryset = request.GET.get('search')
     if queryset:

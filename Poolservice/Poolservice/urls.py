@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Poolservice.views import index , about 
+from Poolservice.views import index , about, faqs 
 from Poolservice.settings import MEDIA_ROOT, MEDIA_URL
 from django.conf.urls.static import static
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('about/', about),
+    path('faqs/', faqs),
     
     path('contact/', include('contact.urls')),
     path('products/', include('products.urls')),

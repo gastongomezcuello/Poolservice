@@ -3,9 +3,24 @@
 {% block title %} Productos - Poolservice {% endblock %}
 
 {% block content %}
-    <h1>Hola desde productos</h1>
+    <h1>Aquí podras encontrar todos nuestros productos</h1>
     <div>
         {% if products %}
+        <div style="display: flex;">
+            <div style="
+                display: grid;
+                width: 70vw;
+                grid-template-columns: 12% 70% 18%;">
+                <div><b>CÓDIGO</b></div>
+                <div><b>DESCRIPCIÓN</b></div>
+                <div><b>TC</b></div>
+            </div>
+            <div style="
+            margin-left: auto;
+            margin-right:auto; ">
+                <div><b>PRECIO</b></div>
+            </div>
+        </div>
         <div>
             <div class="flex-container-products" style="
                 display: flex;
@@ -18,9 +33,9 @@
                         display: grid;
                         width: 70vw;
                         grid-template-columns: 12% 70% 18%;">
-                            <div class="flex-container-queryset__item" name='code' style="background-color: yellow;">{{product.code}}</div>
-                            <div class="flex-container-queryset__item" name="description" style="background-color: yellowgreen;">{{product.description}}</div>
-                            <div class="flex-container-queryset__item" name="tc" style="background-color: orangered;">{{product.tc}}</div>
+                            <div class="flex-container-queryset__item" name='code' >{{product.code}}</div>
+                            <div class="flex-container-queryset__item" name="description" >{{product.description}}</div>
+                            <div class="flex-container-queryset__item" name="tc" >{{product.tc}}</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -30,7 +45,6 @@
                 ">
                     {% for price in prices %}
                         <div  name="price" style="
-                        background-color:brown;
                         padding-right: 2px;"> $ {{price}}</div>
                     {% endfor %}
                 </div>
@@ -39,17 +53,16 @@
                 margin-right: auto;"> 
                     {% if request.user.is_superuser %}
                     {% for product in products %}                          
-                        <div  name="update" style="background-color: pink;"><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
+                        <div  name="update" ><a href="/products/update-product/{{product.id}} ">Actualizar</a></div>
                     {% endfor %}
                     {% endif %}                 
                 </div>
             </div>
         
-        
+        </div>
+        {% endif %}
         {% if message_products %}
             <h2>{{message_products}}</h2>
-        {% endif %}
-        </div>
         {% endif %}
     {% if request.user.is_superuser %}
         <a href="/products/create-product">Nuevo Producto</a>
