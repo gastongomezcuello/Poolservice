@@ -40,15 +40,17 @@ def update_product (request, id):
         context ={
             'form' : UpdateProductForm(
                 initial={
+                    'description': product.description,
                     'stock': product.stock,
-                    'price': product['price'],
+                    'price': product.price,
             })
         }
         return render(request, 'products/update-product.html', context=context)
     elif request.method == 'POST':
         form = UpdateProductForm(request.POST)
         if form.is_valid():
-            product['price'] = form.cleaned_data['price']
+            product.description = form.cleaned_data['description']
+            product.price = form.cleaned_data['price']
             product.stock = form.cleaned_data['stock']
             product.save()
                 
@@ -79,9 +81,16 @@ def list_products (request):
             for product in products:
             
                 if product.tc == 'Vulcano tc1':
-                    list_prices.append(round((product.price * Decimal(29.9 * TC1)), 2)) 
+                    if product.id < 654: 
+                        list_prices.append(round((product.price * Decimal(29.9 * TC1)), 2))
+                    else:
+                        list_prices.append(round((product.price * Decimal(33.6 * TC1)), 2)) 
+
                 elif product.tc == 'Vulcano tc2':
-                    list_prices.append(round((product.price * Decimal(29.9 * TC2)), 2))
+                    if product.id < 654: 
+                        list_prices.append(round((product.price * Decimal(29.9 * TC2)), 2)) 
+                    else:    
+                        list_prices.append(round((product.price * Decimal(33.6 * TC2)), 2))
                 elif product.tc == 'Makkintal':
                     list_prices.append(round((product.price * Decimal(Makkintal)), 2))
                 elif product.tc == 'Moldear':

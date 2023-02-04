@@ -40,6 +40,9 @@ class Command(BaseCommand):
         # merge the dataframes and save the dataframe to the database
         df = pd.merge(a_ll, tc2, how='outer')
 
+        df = df.drop_duplicates(subset=['code'], keep='first')
+        
+
         # function to swap the columns to work properly with the database
         def swap_columns(df, col1, col2):
             col_list = list(df.columns)
@@ -53,7 +56,8 @@ class Command(BaseCommand):
         # changing the name of the id_column to work properly with the database
         df = df.reset_index()
         df = df.rename(columns = {'index': 'id'})
-        df = df.index + 1 
+        df.id = df.id + 1
+         
 
         # adding a new column to the dataframe to work properly with the database
         df['stock'] = False
