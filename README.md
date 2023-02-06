@@ -2,8 +2,8 @@
 
 Proyecto de Gastón Gómez Cuello
 
-Se necesita install de : pandas, sqlalchemy, django, openpyxl (mas que nada por el add_data.py para pro-
-ductos que es para agregar datos desde un archivo excel)
+Se necesita install de : PYTHON(preferentemente 3.11 ya que fue la versión que se usó), pandas, sqlalchemy, django, openpyxl 
+(mas que nada por el add_data.py para productos que es para agregar datos desde un archivo excel)
 
 
 
