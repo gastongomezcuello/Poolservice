@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Sobre nosotros - Poolservice {% endblock %}
 
 {% block content %}
     <h1>Acerca de nosotros</h1>
-    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus praesentium optio ipsa natus neque minus non deleniti labore, animi fugiat, assumenda harum fugit iusto consequuntur nulla ex! Dolores, molestias.</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae neque ratione iure obcaecati officia minus, mollitia veritatis iste id omnis. Maiores aliquam libero corrupti dolores a aspernatur nam adipisci omnis.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae neque ratione iure obcaecati officia minus, mollitia veritatis iste id omnis. Maiores aliquam libero corrupti dolores a aspernatur nam adipisci omnis.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae neque ratione iure obcaecati officia minus, mollitia veritatis iste id omnis. Maiores aliquam libero corrupti dolores a aspernatur nam adipisci omnis.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae neque ratione iure obcaecati officia minus, mollitia veritatis iste id omnis. Maiores aliquam libero corrupti dolores a aspernatur nam adipisci omnis.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus est, porro qui hic atque at nesciunt quam modi nisi magnam! Nostrum neque minus est veritatis! Dolore porro perspiciatis soluta illum!</p>
+    <div class="grid-container">
+        <p>Poolservice es una empresa destinada a comercializar.</p>
+        <img class='about'  src="{% static 'images/full.jpg' %}" >
+    </div>
 {% endblock %}

@@ -18,21 +18,29 @@ body {
     border-radius: 5px;
     
 }
-
+.content{
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 0px 20px;
+}
 input {
     outline-color: #49e ;
 }
 li.inline {
     box-sizing: content-box;
     display: inline;
-
 }
 
 .container {
+    width: 100%;
     height: 60px;
     background-color: #39e;
 }
 
+img.about {
+    margin-bottom: 20px;
+    float: right;
+}
 
 .container__flex-container {
     height: 100%;
@@ -57,16 +65,23 @@ li.inline {
 }
 .grid-container{
     display: grid;
+    grid-template-columns: 45% 55%;
 }
-.footer-container__footer-copyright{
-    background-color: #039;
-}
+
 
 .footer-container__footer {
     display: grid;
-    width: 100vw;
+    grid-template-columns: 20% 30% 25% 25%;
+    padding: 4px;
+    width: 100%;
     height: 40vh;
     background-color: #15a;
+}
+.copyright{
+    width: 100%;
+    height: 70px;
+    background-color: #039;
+    padding: 4px;
 }
 
 textarea {

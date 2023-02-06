@@ -58,8 +58,7 @@
 
     </header>
     <div class="content">
-
-    {% block content %} {% endblock %}
+        {% block content %} {% endblock %}
     </div>
     <div class="footer-container">
         <footer class="footer-container__footer">
@@ -68,15 +67,16 @@
                 <span class='inline'>Poolservice</span>
             </div>
             <ul>
-                <li class="inline"><a href="https://www.facebook.com/poolservice1" target="_blank">Facebook</a></li>    
-                <li class="inline"><a href="https://instagram.com/poolservice_cba?igshid=YmMyMTA2M2Y=" target="_blank">Instagram</a></li>    
-                <li class="inline"><a href="https://wa.me/+5493516165581" target="_blank">Whatsapp</a></li>
+                <li class="inline"><a href="https://www.facebook.com/poolservice1" target="_blank"><img width="45px" height="45px" src="{% static 'ico/facebook.png' %}"></a></li>    
+                <li class="inline"><a href="https://instagram.com/poolservice_cba?igshid=YmMyMTA2M2Y=" target="_blank"><img width="45px" height="45px" src="{% static 'ico/instagram.png' %}"></a></li>    
+                <li class="inline"><a href="https://wa.me/+5493516165581" target="_blank"><img width="45px" height="45px" src="{% static 'ico/whatsapp.png' %}"></a></li>
             </ul>
-            <div class="footer-container__footer-copyright">
-                COPYRIGHT , POOLSERVICE 
-            </div>
+           
             
         </footer>
+    </div>
+    <div class="copyright">
+        COPYRIGHT , POOLSERVICE 
     </div>
 </body>
 </html>
