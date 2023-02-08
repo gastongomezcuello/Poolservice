@@ -1,6 +1,7 @@
 from django.db import models
 from django.core import validators
 from django.core.validators import RegexValidator
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,7 +16,8 @@ class Client(models.Model):
         ('Responsable inscripto', 'Responsable inscripto'),
         ('Iva exento', 'Iva exento'),
     )
-    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=50, unique=True) 
     name = models.CharField(max_length=40 , verbose_name='Nombre')
     dni = models.CharField(max_length=8, validators=[ 
         validators.RegexValidator(r'^[0-9]{8}$', 'DNI inválido.')], verbose_name='DNI' , null=True, blank=True , unique=True , ) 

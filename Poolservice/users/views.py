@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from clients.views import create_client
 # from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.contrib.auth.decorators import login_required  
 
@@ -33,8 +34,10 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            username = form.cleaned_data.get('username')
+            create_client(username)
             login(request, user)
-            return redirect('/')
+            return redirect(('/clients/complete-profile/'+f'{username}'))
         else:
             context = {
                 'form': form ,

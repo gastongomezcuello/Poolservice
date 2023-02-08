@@ -4,28 +4,52 @@ from clients.forms import ClientForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-@login_required()
-def create_client(request):
 
+def create_client(username):
+    Client.objects.create(username = str(username))
+    
+@login_required()
+def update_client(request, username):
+    client = Client.objects.get(username = username)
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
-            Client.objects.create(**form.cleaned_data)
+            form.save()
             context = {
-                'message': 'Cliente creado correctamente'
+                'message': 'Cliente actualizado exitosamente'
             }
-            
+            return render(request, 'clients/update_client.html', context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form': ClientForm()
-            } 
-    
+            }
+            return render(request, ('/clients/complete-profile/'+f'{username}'), context)
     else:
         context = {
-                'form': ClientForm()
-            }          
-    return render(request, 'clients/create-client.html', context=context)
+            'form': ClientForm()
+        }
+        return render(request, ('/clients/complete-profile/'+f'{username}'), context)
+    
+    # if request.method == 'POST':
+    #     form = ClientForm(request.POST)
+    #     if form.is_valid():
+    #         Client.objects.create(**form.cleaned_data)
+    #         context = {
+    #             'message': 'Cliente creado correctamente'
+    #         }
+            
+    #     else:
+            # context = {
+            #     'form_errors': form.errors,
+            #     'form': ClientForm()
+            # } 
+    
+    # else:
+    #     context = {
+    #             'form': ClientForm()
+    #         }          
+    # return render(request, 'clients/create-client.html', context=context)
 @login_required()
 def list_clients (request):
     clients = Client.objects.all()

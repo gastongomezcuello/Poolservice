@@ -1,8 +1,8 @@
 from django.urls import path
 
-from clients.views import create_client , list_clients
+from clients.views import update_client , list_clients
 
 urlpatterns = [
     path('list-clients/', list_clients, name='list_clients'),
-    path('create-client/', create_client, name='create_client'),
+    path('complete-profile/<str:username>', update_client, name='update_client'),
 ]
