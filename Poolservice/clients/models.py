@@ -17,8 +17,7 @@ class Client(models.Model):
         ('Iva exento', 'Iva exento'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_picture =  models.ImageField(upload_to='profile_pictures', blank=True, null=True)
-    name = models.CharField(max_length=40 , verbose_name='Nombre')
+    profile_picture =  models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     dni = models.CharField(max_length=8, validators=[ 
         validators.RegexValidator(r'^[0-9]{8}$', 'DNI inválido.')], verbose_name='DNI' , null=True, blank=True , unique=True , ) 
     cuit = models.CharField(max_length=11 , validators=[ 
@@ -30,7 +29,7 @@ class Client(models.Model):
     city = models.CharField(max_length=40 , verbose_name='Ciudad')
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.user}'
 
     class Meta:
         verbose_name = 'Cliente'

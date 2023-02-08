@@ -17,4 +17,4 @@ from clients.models import Client
 class ClientForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['name', 'dni', 'cuit', 'kind', 'condition',  'email', 'phone', 'address', 'city', ]
+        fields = [ 'dni', 'cuit', 'kind', 'condition', 'phone', 'address', 'city', ]

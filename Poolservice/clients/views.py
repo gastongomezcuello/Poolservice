@@ -2,12 +2,14 @@ from django.shortcuts import render
 from clients.models import Client
 from clients.forms import ClientForm
 from django.db.models import Q
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def create_client(request):
     print('LAPUTAMADRE')
-    Client.objects.create()
+    client = Client(id=request.user.id, user=User.objects.get())
+    new_client = client.save()
     
 @login_required()
 def update_client(request):
