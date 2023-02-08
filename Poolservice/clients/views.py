@@ -11,7 +11,7 @@ def create_client(request):
     
 @login_required()
 def update_client(request):
-    client = Client.objects.get(username = request.user.username)
+    client = Client.objects.get()
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
