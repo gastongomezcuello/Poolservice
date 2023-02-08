@@ -34,10 +34,9 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            username = form.cleaned_data.get('username')
-            create_client(username)
+            create_client(request)
             login(request, user)
-            return redirect(('/clients/complete-profile/'+f'{username}'))
+            return redirect('/clients/complete-profile/')
         else:
             context = {
                 'form': form ,

@@ -46,7 +46,7 @@
                 {% endif %}
                 <div class="container__flex-container-div">
                     {% if request.user.is_authenticated %}
-                    {{request.user}}
+                    <a href="/clients/complete-profile"> {{request.user}} </a>
                     <a href="/users/logout"><button class="border" type="button">Logout</button></a>
                     {% else %}
                     <a href="/users/login"><button class="border" type="button">Login</button></a>

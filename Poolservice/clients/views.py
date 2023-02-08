@@ -5,12 +5,13 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-def create_client(username):
-    Client.objects.create(username = str(username))
+def create_client(request):
+    print('LAPUTAMADRE')
+    Client.objects.create()
     
 @login_required()
-def update_client(request, username):
-    client = Client.objects.get(username = username)
+def update_client(request):
+    client = Client.objects.get(username = request.user.username)
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
