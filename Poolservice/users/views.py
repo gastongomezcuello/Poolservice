@@ -36,7 +36,9 @@ def signup_view(request):
             user = form.save()
             username=user.username
             login(request, user)
-            create_client(request,username)
+            print('ACA LLEGA')
+            return redirect(f'../../clients/create-client/{str(username)}')
+            
         else:
             context = {
                 'form': form ,

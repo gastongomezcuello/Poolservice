@@ -11,7 +11,7 @@ def create_client(request,username):
         if request.user.profile != "NULL":
             return redirect('../../clients/complete-profile')
     except:
-        client = Client(id=request.user.id, user=User.objects.get(username=username))
+        client = Client(user=User.objects.get(username=username))
         new_client = client.save()
         return redirect('../../clients/complete-profile')
 @login_required()
