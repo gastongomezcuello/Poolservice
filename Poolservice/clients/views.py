@@ -1,38 +1,57 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from clients.models import Client
 from clients.forms import ClientForm
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-
-def create_client(request):
-    print('LAPUTAMADRE')
-    client = Client(id=request.user.id, user=User.objects.get())
-    new_client = client.save()
-    
+@login_required()
+def create_client(request,username):
+    try:
+        if request.user.profile != "NULL":
+            return redirect('../../clients/complete-profile')
+    except:
+        client = Client(id=request.user.id, user=User.objects.get(username=username))
+        new_client = client.save()
+        return redirect('../../clients/complete-profile')
 @login_required()
 def update_client(request):
-    client = Client.objects.get()
+    client = Client.objects.get(user=request.user)
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
-            form.save()
+            client.dni=form.cleaned_data['dni']
+            client.cuit=form.cleaned_data['cuit']
+            client.kind=form.cleaned_data['kind']
+            client.phone=form.cleaned_data['phone']
+            client.address=form.cleaned_data['address']
+            client.city=form.cleaned_data['city']
+            client.save()
             context = {
                 'message': 'Cliente actualizado exitosamente'
             }
-            return render(request, 'clients/update_client.html', context)
+            return render(request, 'clients/complete-profile.html', context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form': ClientForm()
             }
-            return render(request, ('/clients/complete-profile/'+f'{username}'), context)
+            return render(request, 'clients/complete-profile.html', context)
     else:
         context = {
-            'form': ClientForm()
+            'form': ClientForm(
+                initial={
+                    'dni': client.dni,
+                    'cuit': client.cuit,
+                    'kind': client.kind,
+                    'phone': client.phone,
+                    'address': client.address,
+                    'city': client.city,
+   
+                }
+            )
         }
-        return render(request, ('/clients/complete-profile/'+f'{username}'), context)
+        return render(request, 'clients/complete-profile.html', context)
     
     # if request.method == 'POST':
     #     form = ClientForm(request.POST)

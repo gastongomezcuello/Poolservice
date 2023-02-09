@@ -34,9 +34,9 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            create_client(request)
+            username=user.username
             login(request, user)
-            return redirect('/clients/complete-profile/')
+            create_client(request,username)
         else:
             context = {
                 'form': form ,
