@@ -2,11 +2,13 @@
 
 Proyecto de Gastón Gómez Cuello DNI: 40522131
 
-link de drive con el video: https://drive.google.com/file/d/1u0er8XskfU_6LKGpepwSK2--BIOEzbzF/view?usp=sharing
+link de drive con el video: https://drive.google.com/file/d/1xH39ndIwxltyUsCKU-GLMfIUnzZidwme/view?usp=sharing
 
 Primero que nada, anoche 8/2/23 cuando estaba haciendo el video de la entrega me di con un error, por la falta de tiempo, no lo revise. Esta
 mañana 9/2/23 me di cuenta que era una tontera y me tome el atrevimiento de corregirlo (no habia puesto un return antes del redirect..). 
 No se modificó nada mas del proyecto, hay otras cosas que quedaron obsoletas y siguen estando. Ej: link "nuevo cliente" en pestaña clientes.
+
+Otra cosita: al grabar el video use camara y se tapan los botones login, signup, y el link usuario una vez logueado.
 
 
 
