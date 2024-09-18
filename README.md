@@ -1,47 +1,44 @@
-# Poolservice
+# Project Overview
 
-Proyecto de Gastón Gómez Cuello DNI: 40522131
+This project is an online administration and sales platform for a pool supply business. It includes functionalities for managing products, clients, users, and orders. 
 
-link de drive con el video: https://drive.google.com/file/d/1xH39ndIwxltyUsCKU-GLMfIUnzZidwme/view?usp=sharing
+## Installation
 
+To set up the project, ensure you have the following installed:
 
+- **Python** (preferably version 3.11, as this is the version used)
+- **Pandas**
+- **SQLAlchemy**
+- **Django**
+- **Openpyxl** (primarily for `add_data.py` which adds data from an Excel file)
+- **Pillow** (required for working with `ImageField`—note that it doesn’t appear in the profile completion form, but it should be included)
 
-Se necesita install de : PYTHON(preferentemente 3.11 ya que fue la versión que se usó), pandas, sqlalchemy, django, openpyxl 
-(mas que nada por el add_data.py para productos que es para agregar datos desde un archivo excel), se necesita tambien install de Pillow para
-trabajar con ImageField (de todas formas no aparece en el formulario de completar perfil, pero ahi DEBERIA ESTAR)
+## Features
 
+- **Product Management**: Add, modify, and view products including unique codes, descriptions, prices, exchange rates, and stock availability. 
+- **Client Management**: Create and manage client profiles.
+- **User Management**: Create and manage user accounts.
+- **Order Management**: Create and modify orders, including linking products and clients.
 
+## Functionality
 
-Este proyecto pretende ser una pagina de administración y ventas online de un negocio de articulos 
-para piscinas.
-De momento están definidas vistas para crear: productos, clientes, usuarios y pedidos; modificar: precios, descripción, stock. 
-Para la creación de pedidos se hace referencia tanto a productos como a clientes.
-Hay un add_data.py para productos de un provedor. YA FUNCIONA ;)
+- **Data Import**: Use `add_data.py` to import product data from a provider’s Excel file. This functionality is operational.
+- **Homepage**: Currently displays text only. Future updates will include images, links, and additional minor functions.
+- **Forms**: All forms are `forms.ModelForm`. Forms are validated before data is added to the database.
+- **Client Profiles**: Clients can create and update their profiles upon registration or by clicking on their user profile when logged in. This profile is created as a `one-to-one` relationship with the user.
+- **Access Control**: 
+  - Products can be viewed without registration but cannot be updated or created.
+  - Registered clients should not have the ability to modify or create objects. This restriction will be enforced in future updates.
+- **Contact Us**: Queries submitted through the contact form are saved in the database and sent to the company’s email. Additionally, an automatic email is sent to the person who submitted the query.
+- **Client, Product, and Order Creation**: Links for creating new clients and orders will appear in the navigation menu for logged-in users. 
 
-En la pagina de inicio no hay nada mas que texto, se pretende mostrar algunas imagenes, enlaces y algunas funciones menores.
-Para probar los formularios (ademas del de creacion de usuario) hay que crear un superusuario. Luego aparecerán en la nav enlaces para ir a clientes
-, pedidos. Luego tendran un enlace de "nuevo cliente" o "nuevo pedido".
-Se puede acceder a productos sin estar registrado pero solo para ver los productos, no se podran actualizar ni crear nuevos productos. 
-Al agregar producto se pide codigo(tiene que ser unico), descripcion, precio, tc (tipo de cambio charfield con opciones de cada provedor) y si hay
-o no stock de ese producto. Cada formulario se valida antes de agregar la data a la DB
-Sigo trabajando en los estilos, y la creacion de paginas para completar. Los forms YA SON de tipo forms.ModelForm.
+## Important Details
 
-Los campos Tipo de cliente, tipo de cambio en productos, y Forma de pago en orders son importantes a la hora de cal-
-cular el precio final de los productos (revendedores tienen descuentos que los clientes normales no, tipo
-de cambio hace referencia al dolar que rige para cada producto, y dependiendo la forma de pago hay 
-descuentos o recargos) ESTO AUN NO ESTÁ plasmado en codigo pero es lo que se pretende. Ojala tuviera mas tiempo para trabajar en mi código.
-EL LINK DE NUEVO CLIENTE NO SE DEBE UTILIZAR. Ahora el perfil de cliente se crea tanto al registrarse en la pagina como al clickear en el usuario
-una vez logueado (esto sirve si el usuario se crea desde consola con createsuperuser, etc.). Se completa el perfil de cliente con los campos del
-modelo con el mismo nombre, asociado one to one con el usuario.
+- **Client Type**, **Exchange Rates** in products, and **Payment Methods** in orders are crucial for calculating final prices. Discounts apply to resellers, exchange rates vary by product, and payment methods may affect pricing. This functionality is planned but not yet implemented.
+- **Link Restrictions**: The "New Client" link should not be used.
+- **Profile Completion**: The client profile is completed upon registration or by accessing the user profile when logged in. This applies whether the user is created via the console or the registration page.
 
-POR SUPUESTO que las personas registradas como clientes no deberian poder modificar ni crear ningun objeto, pero a fines del trabajo, para que sea mas
-facil probar todas las funciones quedará sin modificar por el momento. 
+## Future Updates
 
-Lo mas interesante esta en el contact us, se envia una consulta que ademas de guardarse en base de datos, queda en el mail de la empresa, a la vez que
-se envia un mail automatico al mail del que realiza la consulta.
-
-Al final solo se va a mostrar la pagina de prductos con un listado, precios,  etc. ;
-informacion sobre el negocio, contacto, preguntas frecuentes (desde la pagina de contacto) a cualquiera que entre
-al sitio y:  paginas de creacion de clientes, productos, pedidos,  para personas registradas
-
-
+- Styling and page creation are ongoing.
+- Only the product page with a list of products, prices, business information, contact details, and frequently asked questions will be publicly accessible. Registered users will have access to create clients, products, and orders.
